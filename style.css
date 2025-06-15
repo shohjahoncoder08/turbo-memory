@@ -1,0 +1,74 @@
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #0a0a20;
+            cursor: none;
+            position: relative;
+        }
+
+        /* Yulduzlar uchun stil */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* Barglar uchun stil */
+        .leaf {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            background: linear-gradient(to right, #2e8b57, #90ee90);
+            border-radius: 50% 50% 50% 0;
+            transform-origin: center;
+            pointer-events: none;
+            filter: drop-shadow(0 0 5px rgba(0, 100, 0, 0.5));
+            animation: float 3s infinite alternate ease-in-out;
+            opacity: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .leaf:nth-child(odd) {
+            background: linear-gradient(to right, #3cb371, #98fb98);
+            border-radius: 50% 0 50% 50%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            100% {
+                transform: rotate(5deg) scale(1.1);
+            }
+        }
+
+        /* Cursor uchun stil */
+        .cursor {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+            z-index: 100;
+        }
